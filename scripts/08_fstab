@@ -29,7 +29,7 @@ function f_fstab {
   fi
 
   if grep -q '[[:space:]]/var/tmp[[:space:]].*defaults[[:space:]]0 0$' /etc/fstab; then
-    grep '[[:space:]]/var/tmp[[:space:]].*defaults[[:space:]]0 0$' /etc/fstab | sed 's/defaults/defaults,nosuid,nodev/g' >> "$TMPFSTAB"
+    grep '[[:space:]]/var/tmp[[:space:]].*defaults[[:space:]]0 0$' /etc/fstab | sed 's/defaults/defaults,nosuid,nodev,noexec/g' >> "$TMPFSTAB"
   fi
 
   cp "$TMPFSTAB" /etc/fstab
